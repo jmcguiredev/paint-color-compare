@@ -25,7 +25,34 @@ code {
 
 .tile {
   display: flex;
-  flex-direction: column-reverse;
+  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
   border-right: 3px solid black;
+}
+
+
+.color-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.tile-top {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  display: flex;
+}
+.color-input::-webkit-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+.color-input::-moz-color-swatch {
+  border-radius: 15px;
+  border: none;
 }
