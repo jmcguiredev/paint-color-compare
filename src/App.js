@@ -4,7 +4,7 @@ import { useState } from "react"
 
 function App() {
 
-  let [color, setColor] = useState("#000000");
+  let [color, setColor] = useState("#A7AAAF");
   let [invertedColor, setInvertedColor] = useState(invert(color));
   let [addedColors, setAddedColors] = useState([]);
 
@@ -70,6 +70,7 @@ function App() {
           {addedColors.map(addedColor => {
             return (
               <div className="tile" style={{backgroundColor: addedColor}}>
+                <div className="tile-top"/>
                 <div className="tile-bottom">
                   <button onClick={() => removeColor(addedColor)}>Remove</button>
                 </div>
