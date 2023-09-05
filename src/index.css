@@ -36,16 +36,34 @@ code {
 }
 
 
-.color-input {
+/* #color-input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 100px;
-  height: 100px;
+  opacity: 0;
+  width: 0;
+  height: 0;
   background-color: transparent;
   border: none;
-  cursor: pointer;
+  cursor: default;
 }
+
+.color-input-label {
+  width: 100px;
+  height: 100px;
+  border: 3px solid black;
+  border-radius: 100px;
+  cursor: pointer;
+} */
+
+/* .color-input::-webkit-color-swatch {
+  border-radius: 100px;
+  border: 2px solid black;
+}
+.color-input::-moz-color-swatch {
+  border-radius: 100px;
+  border: none;
+} */
 
 .tile-top {
   padding-left: 1rem;
@@ -57,28 +75,21 @@ code {
   display: flex;
   justify-content: center;
   padding: 1rem 0rem;
+  container-type: inline-size;
 }
 
-.color-input::-webkit-color-swatch {
-  border-radius: 100px;
-  border: 2px solid black;
-}
-.color-input::-moz-color-swatch {
-  border-radius: 100px;
-  border: none;
-}
-
+/* 
 button {
   background-color: transparent;
   border: 3px solid black;
   border-radius: 5px;
   color: black;
-  padding: 1cqw 1cqw;
+  padding: 1rem 0rem;
   text-align: center;
   text-decoration: none;
-  font-size: 0.75cqw;
+  font-size: 2.5rem;
   cursor: pointer;
-  width: 50%;
+  width: 75%;
   transition: 0.3s;
 }
 
@@ -86,3 +97,9 @@ button:hover {
   border: 3px solid white;
   color: white;
 }
+
+button:disabled {
+  color: rgb(63, 63, 63);
+  border: 3px solid rgb(63, 63, 63);
+  cursor: default;
+} */

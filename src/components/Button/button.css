@@ -1,0 +1,25 @@
+button {
+    background-color: transparent;
+    border: 3px solid black;
+    border-radius: 5px;
+    color: black;
+    padding: 1rem 0rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    width: 75%;
+    transition: 0.3s;
+    user-select: none;
+  }
+  
+  button:hover {
+    border: 3px solid white;
+    color: white;
+  }
+  
+  button:disabled {
+    color: rgb(63, 63, 63);
+    border: 3px solid rgb(63, 63, 63);
+    cursor: default;
+  }

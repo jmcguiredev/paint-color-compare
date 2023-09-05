@@ -1,0 +1,19 @@
+#color-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+
+.color-input-label {
+  width: 100px;
+  height: 100px;
+  border: 3px solid black;
+  border-radius: 100px;
+  cursor: pointer;
+}

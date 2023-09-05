@@ -1,12 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from "react" 
+import { invert } from './util/helpers' 
+import ColorInput from './components/ColorInput/ColorInput'
+import Button from './components/Button/Button'
 
 function App() {
 
   let [color, setColor] = useState("#A7AAAF");
   let [invertedColor, setInvertedColor] = useState(invert(color));
   let [addedColors, setAddedColors] = useState([]);
+  const maxColors = 7;
 
   function updateCurrentColors(color) {
     setColor(color);
@@ -14,10 +17,10 @@ function App() {
   }
 
   function addColor(color) {
+    if (addedColors.length >= maxColors) return;
     let newColors = [...addedColors];
     newColors.push(color);
     setAddedColors(newColors);
-    console.log(addedColors);
   }
 
   function removeColor(color) {
@@ -29,50 +32,33 @@ function App() {
     setAddedColors(newColors);
     console.log(addedColors);
   }
-  function invert(color) {
-    if (color.indexOf('#') === 0) {
-      color = color.slice(1);
-    }
-    // convert 3-digit color to 6-digits.
-    if (color.length === 3) {
-        color = color[0] + color[0] + color[1] + color[1] + color[2] + color[2];
-    }
-    if (color.length !== 6) {
-        throw new Error('Invalid color color.');
-    }
-    // invert color components
-    var r = (255 - parseInt(color.slice(0, 2), 16)).toString(16),
-        g = (255 - parseInt(color.slice(2, 4), 16)).toString(16),
-        b = (255 - parseInt(color.slice(4, 6), 16)).toString(16);
-    // pad each with zeros and return
-    return '#' + padZero(r) + padZero(g) + padZero(b);
-  } 
-
-  function padZero(str, len) {
-    len = len || 2;
-    var zeros = new Array(len).join('0');
-    return (zeros + str).slice(-len);
-}
-
-
 
   return (
     <div className="App">
         <div className="main"> 
           <div className="tile main-tile" style={{backgroundColor: color}}>
             <div className="tile-top">
-              <input type="color" className="color-input" value={invertedColor} onChange={e => updateCurrentColors(e.target.value)}  />
+              <ColorInput 
+                color={color}
+                invertedColor={invertedColor}
+                onChange={updateCurrentColors}
+              />
             </div>
             <div className="tile-bottom">
-              <button onClick={() => addColor(color)}>Add</button>
+              <Button 
+                onClick={() => addColor(color)} 
+                disabled={addedColors.length >= maxColors}
+              >
+                  Add
+              </Button>
             </div>
           </div>
-          {addedColors.map(addedColor => {
+          {addedColors.map((addedColor, idx) => {
             return (
-              <div className="tile" style={{backgroundColor: addedColor}}>
+              <div className="tile" style={{backgroundColor: addedColor}} key={idx}>
                 <div className="tile-top"/>
                 <div className="tile-bottom">
-                  <button onClick={() => removeColor(addedColor)}>Remove</button>
+                  <Button onClick={() => removeColor(addedColor)}>Remove</Button>
                 </div>
             </div>
             );
